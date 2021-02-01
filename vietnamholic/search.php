@@ -45,24 +45,8 @@ if ( have_posts() ) {
 		 * If you want to override this in a child theme, then include a file
 		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 		 */
-		
-	
-?>
- <article class="col-xs-12 vh-25 py-0 mb-4 container-fluid">
-        <div class="row">
-			<div class="col-xs-12 col-lg-3">
-                <img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' );?>" class="w-100" style="height:20vh;" alt="<?php the_title_attribute(); ?>"/>
-			</div>
-            <div class="col-xs-12 col-lg-9">
-                <h5>
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?>
-                    </a>
-                </h5>
-                <?php the_excerpt(); ?>
-            </div>
-        </div>
-    </article>
-<?php
+get_template_part( 'template-parts/content/content', 'indexOthers' );  
+
 } // End the loop.
 	// If no content, include the "No posts found" template.
 } else {
