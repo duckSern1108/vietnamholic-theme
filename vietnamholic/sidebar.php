@@ -1,6 +1,17 @@
-<aside class="col-lg-4 d-none d-lg-block mt-0">
-	<blockquote class="tiktok-embed mt-0" cite="https://www.tiktok.com/@hanoiholic/video/6920495667123064066" data-video-id="6920495667123064066" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@hanoiholic" href="https://www.tiktok.com/@hanoiholic">@hanoiholic</a> <p><a title="review" target="_blank" href="https://www.tiktok.com/tag/review">##review</a> Phú Quốc 4N3Đ - chuyến đi dành cho team và gia đình. Ăn thả ga Hải Sản và chơi đã đời ở Phú Quốc <a title="hanoiholic" target="_blank" href="https://www.tiktok.com/tag/hanoiholic">##hanoiholic</a> <a title="vietnamwhynot" target="_blank" href="https://www.tiktok.com/tag/vietnamwhynot">##VietNamWhyNot</a>  <a title="travel" target="_blank" href="https://www.tiktok.com/tag/travel">##travel</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp">##fyp</a></p> <a target="_blank" title="♬ nhạc nền  - Hà Nội Holic" href="https://www.tiktok.com/music/nhạc-nền-Hà-Nội-Holic-6920495680662424321">♬ nhạc nền  - Hà Nội Holic</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-	<div id="widget">
-    <?php dynamic_sidebar( 'sidebar-1' ); ?>
-    </div>
-</aside>
+<?php
+/**
+ * The sidebar containing the main widget area
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package vietnamholic
+ */
+
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
+}
+?>
+
+<aside id="secondary" class="widget-area">
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+</aside><!-- #secondary -->

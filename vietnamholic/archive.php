@@ -4,42 +4,48 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since 1.0.0
+ * @package vietnamholic
  */
 
 get_header();
-
-$description = get_the_archive_description();
-$postCount = 0 ;
 ?>
 
-<?php if ( have_posts() ) : ?>
+	<main id="primary" class="site-main">
 
-	<header class="alignwide border-bottom border-5 border-dark my-4">
-		<h3>
-			<?php echo single_term_title();  ?>
-		</h3>
-		<?php if ( $description ) : ?>
-			<p><?php echo wp_kses_post( wpautop( $description ) ); ?></p>
-		<?php endif; ?>
-	</header><!-- .page-header -->
-<div class="container">
-	<div class="row">
-		
-	<?php while ( have_posts() ) {
-	$postCount++; 
-		the_post(); 
-		get_template_part('/template-parts/archive/archive','post');
-	}	
-	?>
-</div>
-</div>
+		<?php if ( have_posts() ) : ?>
 
+			<header class="page-header">
+				<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+				?>
+			</header><!-- .page-header -->
 
-<?php else : ?>
-	<?php get_template_part( 'template-parts/content/content-none' ); ?>
-<?php endif; ?>
+			<?php
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
 
-<?php get_footer();?>
+				/*
+				 * Include the Post-Type-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+				 */
+				get_template_part( 'template-parts/content', get_post_type() );
+
+			endwhile;
+
+			the_posts_navigation();
+
+		else :
+
+			get_template_part( 'template-parts/content', 'none' );
+
+		endif;
+		?>
+
+	</main><!-- #main -->
+
+<?php
+get_sidebar();
+get_footer();

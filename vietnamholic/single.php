@@ -1,35 +1,40 @@
 <?php
 /**
- * The template for displaying single posts and pages.
+ * The template for displaying all single posts
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package vietnamholic
  */
 
-get_template_part( 'template-parts/header/header','navbarOnly');
+get_header();
 ?>
 
-<main id="site-content" role="main">
-<div class="container my-4">
+	<main id="primary" class="site-main">
 
-	<?php
-
-	if ( have_posts() ) {
-
-		while ( have_posts() ) {
+		<?php
+		while ( have_posts() ) :
 			the_post();
-get_template_part( 'template-parts/content/content', 'single' );
-			?>
-<?php		}
-	}
 
-	?>
-</div>
-</main><!-- #site-content -->
+			get_template_part( 'template-parts/content', get_post_type() );
 
-<?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
+			the_post_navigation(
+				array(
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'vietnamholic' ) . '</span> <span class="nav-title">%title</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'vietnamholic' ) . '</span> <span class="nav-title">%title</span>',
+				)
+			);
 
-<?php get_footer(); ?>
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // End of the loop.
+		?>
+
+	</main><!-- #main -->
+
+<?php
+get_sidebar();
+get_footer();
