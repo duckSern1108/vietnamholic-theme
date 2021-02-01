@@ -17,7 +17,7 @@ if (function_exists("icl_register_string")) {
 	<div class="row">
 	<?php while (have_posts()) : the_post(); ?>
 		<div class="col-xs-12 col-sm-6 col-lg-4 row">
-			<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' );?>" class="w-100" style="height:20vh;" alt="<?php the_title_attribute(); ?>"/>
+			<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' );?>" class="w-100" alt="<?php the_title_attribute(); ?>"/>
 			<h5>
 				<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h5>
