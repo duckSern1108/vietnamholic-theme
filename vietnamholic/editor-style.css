@@ -1,0 +1,18 @@
+/* Add this to your `style-editor.css` file */
+body {
+    background-color: white;
+    color: black;
+}
+/* Set global width for all Gutenberg blocks - this should be the same as your article width */
+.wp-block {
+    max-width: 1300px;
+  }
+#post-title-0 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+.editor-post-title__block {
+    border: none !important;
+    padding : 0 !important;
+    margin: 0 !important;
+}

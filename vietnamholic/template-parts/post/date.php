@@ -1,0 +1,1 @@
+<i class="far fa-calendar-alt me-3 orangeText"></i><span class="fw-500"><?php echo get_the_date('j/m/Y'); ?></span>
