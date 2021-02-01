@@ -4,6 +4,9 @@ footer .aboutCompany i {
 footer .aboutCompany a {
   transition: color 0.2s;
 }
+.aboutCompany > a {
+		background-size: 0%;
+}
 footer .aboutCompany a:hover {
   color: #4180CB;
 }
