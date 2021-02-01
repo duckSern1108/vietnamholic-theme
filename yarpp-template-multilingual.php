@@ -12,11 +12,11 @@ if (function_exists("icl_register_string")) {
 
 ?>
 <?php if (have_posts()):?>
-<h3>Tin cùng chuyên mục : </h3>
+<h2>Tin cùng chuyên mục : </h2>
 <div class="container-fluid mt-2">
 	<div class="row">
 	<?php while (have_posts()) : the_post(); ?>
-		<div class="col-xs-12 col-sm-6 col-lg-4 row">
+		<div class="col-xs-12 col-sm-6 col-lg-3">
 			<img src="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' );?>" class="w-100" alt="<?php the_title_attribute(); ?>"/>
 			<h5>
 				<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
